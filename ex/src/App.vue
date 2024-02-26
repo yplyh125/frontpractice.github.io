@@ -17,14 +17,13 @@ export default {
 
 
 <style>
-@font-face {
-    font-family: 'JalnanGothic';
-    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_231029@1.1/JalnanGothic.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
+@import url(//fonts.googleapis.com/earlyaccess/notosanskr.css);
+
+.notosanskr * { 
+ font-family: 'Noto Sans KR', sans-serif;
 }
 
 #app{
-  font-family: 'JalnanGothic';
+  font-family: 'Noto Sans KR', sans-serif;
 }
 </style>

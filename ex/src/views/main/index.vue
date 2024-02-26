@@ -7,7 +7,7 @@
       <div class="box1" @click="rankingCheck">
         랭킹 확인
       </div>
-      <div class="box1">
+      <div class="box1" @click="currentForecast">
         현재 예측
       </div>
       <div class="box1">
@@ -36,6 +36,9 @@ export default {
     },
     rankingCheck(){
       router.push({ path:"Ranking" })
+    },
+    currentForecast(){
+      router.push({ path:"currentForecast" })
     }
   }
 
