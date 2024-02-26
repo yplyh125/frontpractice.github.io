@@ -32,6 +32,14 @@
                             </template>
                         </el-table-column>
                     </el-table>
+                    <el-pagination
+                    small
+                    background
+                    layout="prev, pager, next"
+                    :total="4"
+                    class="mt-4"
+                    style="text-align: center;"
+                    /> 
                 </el-tab-pane>
                 <el-tab-pane label="관리자 계정 관리" name="second">
                     <div class="demo-input-suffix">
@@ -78,11 +86,18 @@
                     <div style="">
                         <el-button @click="pageMove" size="large" type="danger" :icon="CirclePlusFilled" circle style="font-size: xx-large; margin-top: 20px; margin-left: 850px;">+</el-button>
                     </div>
+                    <el-pagination
+                        small
+                        background
+                        layout="prev, pager, next"
+                        :total="4"
+                        class="mt-4"
+                    /> 
                 </el-tab-pane>
             </el-tabs>
         </div>
-            
-    </div>
+        
+        </div>
   </div>
 </template>
 

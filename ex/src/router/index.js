@@ -8,6 +8,8 @@ import AdminAdd from '../views/adminAdd/index'
 import PwChange from '../views/clientAccountMana/passwordChange'
 import Nav from '../nav/nav'
 import CurrentForecast from '../views/currentForecast/index'
+import PastPrediction from '../views/pastPrediction/index'
+import NoticeManagement from '../views/noticeManagement/index'
 
 const router = createRouter({
     history: createWebHistory(),
@@ -63,6 +65,16 @@ const router = createRouter({
         path:"/currentForecast",
         name:"CurrentForecast",
         component: CurrentForecast
+      },
+      {
+        path:"/pastPrediction",
+        name:"PastPrediction",
+        component: PastPrediction
+      },
+      {
+        path:"/noticeManagement",
+        name:"NoticeManagement",
+        component: NoticeManagement
       }
     ],
   });

@@ -10,10 +10,10 @@
       <div class="box1" @click="currentForecast">
         현재 예측
       </div>
-      <div class="box1">
+      <div class="box1" @click="pastPrediction">
         지난 예측
       </div>
-      <div class="box1">
+      <div class="box1" @click="noticeManagement">
         공지 관리
       </div>
       <div class="box1">
@@ -26,23 +26,24 @@
   </div>
 </template>
 
-<script>
-import router from '../../router'
-export default {
+<script setup>
+import router from '../../router/index'
 
-  methods:{
-    accountManagement() {
+    const accountManagement=()=> {
       router.push({ path:"accountMana" })
-    },
-    rankingCheck(){
+    }
+    const rankingCheck=()=>{
       router.push({ path:"Ranking" })
-    },
-    currentForecast(){
+    }
+    const currentForecast=()=>{
       router.push({ path:"currentForecast" })
     }
-  }
-
-}
+    const pastPrediction = () => {
+      router.push({ path:"pastPrediction"})
+    }
+    const noticeManagement =() => {
+      router.push({path:"noticeManagement"})
+    }
 </script>
 
 <style scoped>
@@ -66,5 +67,10 @@ export default {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+}
+.box1:hover {
+  background-color: rgb(1, 34, 76);
+  color: aliceblue;
+  cursor: pointer;
 }
 </style>
