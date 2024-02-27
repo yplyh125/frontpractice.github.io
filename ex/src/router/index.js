@@ -7,7 +7,7 @@ import Ranking from '../views/ranking/index'
 import AdminAdd from '../views/adminAdd/index'
 import PwChange from '../views/clientAccountMana/passwordChange'
 import Nav from '../nav/nav'
-import CurrentForecast from '../views/currentForecast/index'
+// import CurrentForecast from '../views/currentForecast/index'
 import PastPrediction from '../views/pastPrediction/index'
 import NoticeManagement from '../views/noticeManagement/index'
 
@@ -61,11 +61,11 @@ const router = createRouter({
         name: "Nav",
         component: Nav
       },
-      {
-        path:"/currentForecast",
-        name:"CurrentForecast",
-        component: CurrentForecast
-      },
+      // {
+      //   path:"/currentForecast",
+      //   name:"CurrentForecast",
+      //   component: CurrentForecast
+      // },
       {
         path:"/pastPrediction",
         name:"PastPrediction",

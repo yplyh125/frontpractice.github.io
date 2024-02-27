@@ -1,4 +1,4 @@
-<template>
+<!-- <template>
   <div class="body">
         <h2>현재 예측</h2>
         <el-table :data="tableData" style="width: 100%">
@@ -55,4 +55,4 @@ const tableData = [
     transform: translate(-50%, -50%);
 }
 
-</style>
+</style> -->

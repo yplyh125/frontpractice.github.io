@@ -1,16 +1,15 @@
 <template>
-  
+  <navheader />
   <router-view></router-view>
   
 </template>
 <script>
-
-
+import navheader from '../src/nav/nav.vue'
 
 export default {
   name: 'App',
   components: {
-    
+    navheader
   }
 }
 </script>

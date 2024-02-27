@@ -7,11 +7,11 @@
       <div class="box1" @click="rankingCheck">
         랭킹 확인
       </div>
-      <div class="box1" @click="currentForecast">
+      <!-- <div class="box1" @click="currentForecast">
         현재 예측
-      </div>
+      </div> -->
       <div class="box1" @click="pastPrediction">
-        지난 예측
+        예측 관리
       </div>
       <div class="box1" @click="noticeManagement">
         공지 관리
@@ -35,9 +35,9 @@ import router from '../../router/index'
     const rankingCheck=()=>{
       router.push({ path:"Ranking" })
     }
-    const currentForecast=()=>{
-      router.push({ path:"currentForecast" })
-    }
+    // const currentForecast=()=>{
+    //   router.push({ path:"currentForecast" })
+    // }
     const pastPrediction = () => {
       router.push({ path:"pastPrediction"})
     }

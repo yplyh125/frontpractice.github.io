@@ -8,16 +8,14 @@
                     <el-select v-model="value2" multiple placeholder="날짜 선택" style="width: 200px; margin-left: 20px;">
                         <el-option v-for="item in optionss" :key="item.values" :label="item.labels" :value="item.values"/>
                     </el-select>
-                    <el-table :data="tableData" style="width: 100%">
-                        <el-table-column prop="home" label="Home"/>
-                        <el-table-column prop="away" label="Away" />
-                        <el-table-column prop="entire" label="총 참여자" />
-                        <el-table-column prop="homeWin" label="홈 승"/>
-                        <el-table-column prop="same" label="무승부" />
-                        <el-table-column prop="awayWin" label="어웨이 승" />
-                        <el-table-column prop="result" label="결과" />
-                    </el-table>
-                    <el-pagination small background layout="prev, pager, next" :total="4" class="mt-4" style="text-align: center;" /> 
+                    <el-calendar>
+                        <template #date-cell="{ data }">
+                        <p :class="data.isSelected ? 'is-selected' : ''">
+                            {{ data.day.split('-').slice(1).join('-') }}
+                            {{ data.isSelected ? '✔️' : '' }}
+                        </p>
+                        </template>
+                    </el-calendar>
                 </el-tab-pane>
                 <el-tab-pane label="모든 예측" name="second">
                     <el-select v-model="value1" multiple placeholder="종류" style="width: 200px">
@@ -26,18 +24,16 @@
                     <el-select v-model="value2" multiple placeholder="날짜 선택" style="width: 200px; margin-left: 20px;">
                         <el-option v-for="item in optionss" :key="item.values" :label="item.labels" :value="item.values"/>
                     </el-select>
-                    <el-table :data="tableData" style="width: 100%">
-                        <el-table-column prop="home" label="Home"/>
-                        <el-table-column prop="away" label="Away" />
-                        <el-table-column prop="entire" label="총 참여자" />
-                        <el-table-column prop="homeWin" label="홈 승"/>
-                        <el-table-column prop="same" label="무승부" />
-                        <el-table-column prop="awayWin" label="어웨이 승" />
-                        <el-table-column prop="result" label="결과" />
-                    </el-table>
-                    <el-pagination small background layout="prev, pager, next" :total="4" class="mt-4" style="text-align: center;" /> 
+                    <el-calendar>
+                        <template #date-cell="{ data }">
+                        <p :class="data.isSelected ? 'is-selected' : ''">
+                            {{ data.day.split('-').slice(1).join('-') }}
+                            {{ data.isSelected ? '✔️' : '' }}
+                        </p>
+                        </template>
+                    </el-calendar>
                 </el-tab-pane>
-                <el-tab-pane label="모든 예측" name="third">
+                <el-tab-pane label="새로운 예측" name="third">
                     <el-select v-model="value1" multiple placeholder="종류" style="width: 200px">
                         <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value"/>
                     </el-select>
@@ -45,15 +41,18 @@
                         <el-option v-for="item in optionss" :key="item.values" :label="item.labels" :value="item.values"/>
                     </el-select>
                     <el-table :data="tableData" style="width: 100%">
-                        <el-table-column prop="home" label="Home"/>
+                        <el-table-column prop="choice">
+                            <el-checkbox v-model="checkAll" :indeterminate="isIndeterminate" @change="handleCheckAllChange"></el-checkbox>
+                        </el-table-column>
+                    
+                        <el-table-column prop="concert" label="대회"/>
+                        <el-table-column prop="home" label="Home" />
                         <el-table-column prop="away" label="Away" />
-                        <el-table-column prop="entire" label="총 참여자" />
-                        <el-table-column prop="homeWin" label="홈 승"/>
-                        <el-table-column prop="same" label="무승부" />
-                        <el-table-column prop="awayWin" label="어웨이 승" />
-                        <el-table-column prop="result" label="결과" />
                     </el-table>
-                    <el-pagination small background layout="prev, pager, next" :total="4" class="mt-4" style="text-align: center;" /> 
+                    <div style="margin: 10px;">
+                        <el-button class="mt-4" type="primary" style="width: 100%; height: 50px;" @click="onAddItem">새로운 예측 생성</el-button>
+                        </div>
+                        
                 </el-tab-pane>
             </el-tabs>
       </div>
@@ -61,34 +60,17 @@
   
   <script setup>
   const tableData = [
-           {
-              home: '2016-05-03',
-              away: 'Tom',
-              entire: 'No. 189, Grove St, Los Angeles',
-              homeWin: "1",
-              same:"무승부",
-              awayWin: "544",
-              result:"좋음"
-          },
-          {
-              home: '2016-05-03',
-              away: 'Tom',
-              entire: 'No. 189, Grove St, Los Angeles',
-              homeWin: "1",
-              same:"무승부",
-              awayWin: "544",
-              result:"좋음"
-          },
-          {
-              home: '2016-05-03',
-              away: 'Tom',
-              entire: 'No. 189, Grove St, Los Angeles',
-              homeWin: "1",
-              same:"무승부",
-              awayWin: "544",
-              result:"좋음"
-          },
-      ]
+         {
+            home: 'city',
+            away: 'Tom',
+            concert: 'sfsfsfscs'
+        },
+        {
+            home: 'city',
+            away: 'Tom',
+            concert: 'sfsfsfscs'
+        },
+    ]
   </script>
   
   <style>
@@ -100,5 +82,8 @@
       left: 50%;
       transform: translate(-50%, -50%);
   }
+  .is-selected {
+  color: #1989fa;
+}
   
   </style>
